@@ -48,7 +48,7 @@ template <typename T, typename> struct is_list_initializable_n_impl;
 // Helper to instantiate is_list_initializable_impl with N args
 template <typename T, std::size_t... I>
 struct is_list_initializable_n_impl<T, std::index_sequence<I...>>
-    : std::integral_constant<bool, is_list_initializable<T, decltype(CvtToAny{I})...>::value>
+    : std::integral_constant<bool, is_list_initializable_v<T, decltype(CvtToAny{I})...>>
 {};
 }  // namespace detail
 
@@ -73,7 +73,7 @@ struct member_count_impl<T, N, false> : std::integral_constant<std::size_t, N> {
 // Recurse while construction succeeds
 template <typename T, std::size_t N>
 struct member_count_impl<T, N, true>
-     : std::integral_constant<std::size_t, member_count_impl<T, N + 1, is_list_initializable_n<T, N>::value>::value>
+     : std::integral_constant<std::size_t, member_count_impl<T, N + 1, is_list_initializable_n_v<T, N>>::value>
 {};
 }  // namespace detail
 
