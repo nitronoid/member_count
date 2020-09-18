@@ -77,6 +77,14 @@ struct Nested
     } inner;
 };
 static_assert(stdex::member_count_v<Nested> == 1, "member_count unit test failed.");
+
+template <typename T>
+struct Template
+{
+    T x;
+    T y;
+};
+static_assert(stdex::member_count_v<Template<int>> == 2, "member_count unit test failed.");
 }  // namespace test
 }  // namespace detail
 }  // namespace stdex
