@@ -12,7 +12,7 @@ struct S
 };
 
 // Check that S has three members at compile time
-static_assert(stdex::member_count_v<S> == 3, "S does not have 3 members.");
+static_assert(stdex::member_count<S> == 3, "S does not have 3 members.");
 ```
 
 ### Requirements
@@ -26,7 +26,7 @@ I haven't traced back the minimum MSVC version yet, but it does work with v19.14
 
 ### Build
 ---
-The utility is header only, simply include `"member_count.hpp"` to use.
+The utility is header only, simply include `"member_count.hpp"` to use (or `"member_count_cpp20.hpp"` to use concepts).
 
 ### Tests
 ---
