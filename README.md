@@ -1,3 +1,8 @@
+# Archived
+See the new static-reflection repo that houses this utility [`nitronoid/looking-glass`](https://github.com/nitronoid/looking-glass).
+
+---
+
 ## `member_count`
 ---
 A `constexpr` utility to determine the number of member fields in an aggregate `struct`.
